@@ -18,15 +18,17 @@ class ServiceItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: screenWidth * 0.23, // Fixed width
-        height: screenHeight * 0.125, // Fixed height (square shape)
+        width: isLandscape ? screenWidth * 0.2 : screenWidth * 0.23,
+        height: isLandscape ? screenHeight * 0.2 : screenHeight * 0.125,
         padding: EdgeInsets.all(screenWidth * 0.03),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(screenWidth * 0.03),
           boxShadow: [
             BoxShadow(
@@ -40,30 +42,23 @@ class ServiceItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Container(
-                padding: EdgeInsets.all(screenWidth * 0.025),
-                decoration: BoxDecoration(
-                  color: Colors.green[50],
-                  shape: BoxShape.circle,
-                ),
-                child: Expanded(
-                  flex: 6,
-                  child: Icon(
-                    icon,
-                    color: Colors.green,
-                    size: screenWidth * 0.055,
-                  ),
+              child: FittedBox(
+                child: Icon(
+                  icon,
+                  color: Colors.green,
+                  size: isLandscape ? screenWidth * 0.02 : screenWidth * 0.055,
                 ),
               ),
             ),
             SizedBox(height: screenWidth * 0.02),
-            Flexible(
+            Expanded(
               child: FittedBox(
                 child: Text(
                   title,
 
                   style: TextStyle(
-                    fontSize: screenWidth * 0.028,
+                    fontSize:
+                        isLandscape ? screenWidth * 0.35 : screenWidth * 0.028,
                     fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.center,

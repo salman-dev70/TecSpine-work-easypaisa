@@ -1,20 +1,26 @@
+import 'package:easy_paisa/controller/language_controller.dart';
 import 'package:easy_paisa/core/utils/image_paths.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class BalanceContainer extends StatelessWidget {
-  const BalanceContainer({super.key});
-
+  BalanceContainer({super.key});
+  final LanguageController languageController = Get.find();
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Container(
-      width: screenWidth * 0.9,
+      width: isLandscape ? screenWidth * 0.35 : screenWidth * 0.9,
+
       padding: EdgeInsets.all(screenWidth * 0.04),
       margin: EdgeInsets.symmetric(vertical: screenWidth * 0.02),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(screenWidth * 0.03),
       ),
       child: IntrinsicHeight(
@@ -28,34 +34,46 @@ class BalanceContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    height: screenHeight * 0.04,
-                    width: screenWidth * 0.25,
+                  SizedBox(
+                    height:
+                        isLandscape ? screenHeight * 0.08 : screenHeight * 0.04,
+                    width: isLandscape ? screenWidth * 0.2 : screenWidth * 0.25,
                     child: Image.asset(
                       ImagePaths.appBarLogo,
                       fit: BoxFit.contain,
                     ),
                   ),
                   Text(
-                    "Available Balance",
+                    languageController.translate('available_balance'),
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: screenWidth * 0.035,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                      fontSize:
+                          isLandscape
+                              ? screenWidth * 0.025
+                              : screenWidth * 0.035,
                     ),
                   ),
                   Text(
-                    "Rs. 26000",
+                    "Rs. 26000  ",
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: screenWidth * 0.05,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                      fontSize:
+                          isLandscape
+                              ? screenWidth * 0.025
+                              : screenWidth * 0.05,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "Updated Just Now",
+                    languageController.translate('updated_just_now'),
                     style: TextStyle(
-                      color: Colors.black.withOpacity(0.7),
-                      fontSize: screenWidth * 0.028,
+                      color:
+                          Theme.of(context).textTheme.bodySmall?.color ??
+                          Colors.grey,
+                      fontSize:
+                          isLandscape
+                              ? screenWidth * 0.02
+                              : screenWidth * 0.028,
                     ),
                   ),
                 ],
@@ -68,10 +86,11 @@ class BalanceContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "My Rewards",
+                  languageController.translate('my_rewards'),
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: screenWidth * 0.032,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                    fontSize:
+                        isLandscape ? screenWidth * 0.024 : screenWidth * 0.032,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -79,8 +98,9 @@ class BalanceContainer extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
-                    width: screenWidth * 0.3,
-                    height: screenHeight * 0.045,
+                    width: isLandscape ? screenWidth * 0.2 : screenWidth * 0.2,
+                    height:
+                        isLandscape ? screenHeight * 0.08 : screenHeight * 0.03,
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -88,7 +108,7 @@ class BalanceContainer extends StatelessWidget {
                         padding: EdgeInsets.zero,
                       ),
                       child: Text(
-                        "Add Cash",
+                        languageController.translate('add_cash'),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: screenWidth * 0.03,
