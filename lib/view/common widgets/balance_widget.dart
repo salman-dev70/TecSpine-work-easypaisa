@@ -53,46 +53,78 @@ class BalanceContainer extends StatelessWidget {
                               : screenWidth * 0.035,
                     ),
                   ),
-                  Text(
-                    "Rs. 26000  ",
-                    style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyLarge?.color,
-                      fontSize:
-                          isLandscape
-                              ? screenWidth * 0.025
-                              : screenWidth * 0.05,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        "Rs. 26000  ",
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
+                          fontSize:
+                              isLandscape
+                                  ? screenWidth * 0.025
+                                  : screenWidth * 0.05,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_circle_right_outlined,
+                        size:
+                            isLandscape
+                                ? screenWidth * 0.03
+                                : screenWidth * 0.05,
+                      ),
+                    ],
                   ),
-                  Text(
-                    languageController.translate('updated_just_now'),
-                    style: TextStyle(
-                      color:
-                          Theme.of(context).textTheme.bodySmall?.color ??
-                          Colors.grey,
-                      fontSize:
-                          isLandscape
-                              ? screenWidth * 0.02
-                              : screenWidth * 0.028,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        languageController.translate('updated_just_now'),
+                        style: TextStyle(
+                          color:
+                              Theme.of(context).textTheme.bodySmall?.color ??
+                              Colors.grey,
+                          fontSize:
+                              isLandscape
+                                  ? screenWidth * 0.02
+                                  : screenWidth * 0.028,
+                        ),
+                      ),
+                      Icon(
+                        Icons.refresh,
+                        size:
+                            isLandscape
+                                ? screenWidth * 0.03
+                                : screenWidth * 0.04,
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
 
-            // Right Side
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  languageController.translate('my_rewards'),
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge?.color,
-                    fontSize:
-                        isLandscape ? screenWidth * 0.024 : screenWidth * 0.032,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.attach_money_outlined,
+                      size:
+                          isLandscape ? screenWidth * 0.03 : screenWidth * 0.05,
+                    ),
+                    Text(
+                      languageController.translate('my_rewards'),
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
+                        fontSize:
+                            isLandscape
+                                ? screenWidth * 0.024
+                                : screenWidth * 0.032,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
                 Spacer(),
                 Align(

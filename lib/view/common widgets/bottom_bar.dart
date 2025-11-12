@@ -101,6 +101,12 @@ class _BuildBottonNavItemState extends State<BuildBottonNavItem> {
         },
         child: Container(
           padding: EdgeInsets.symmetric(vertical: screenWidth * 0.02),
+          decoration: BoxDecoration(
+            border:
+                isSelected
+                    ? Border(top: BorderSide(color: Colors.green, width: 3))
+                    : null,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

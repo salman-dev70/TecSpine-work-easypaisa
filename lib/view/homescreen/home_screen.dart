@@ -34,6 +34,72 @@ class HomeScreen extends StatelessWidget {
           child: Image.asset(ImagePaths.appBarLogo, fit: BoxFit.contain),
         ),
         centerTitle: true,
+        leading: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              width: isLandscape ? screenWidth * 0.2 : screenWidth * 0.1,
+              height: isLandscape ? screenHeight * 0.1 : screenWidth * 0.1,
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
+                shape: BoxShape.circle,
+              ),
+            ),
+
+            // 3 Lines Icon
+            Icon(
+              Icons.person,
+              color: Colors.black,
+              size: isLandscape ? screenHeight * 0.05 : screenWidth * 0.05,
+            ),
+
+            Positioned(
+              bottom: isLandscape ? screenHeight * 0.01 : screenWidth * 0.025,
+              right: isLandscape ? screenWidth * 0.0015 : screenWidth * 0.01,
+
+              child: Container(
+                width: isLandscape ? screenWidth * 0.05 : screenWidth * 0.05,
+                height: isLandscape ? screenHeight * 0.05 : screenWidth * 0.05,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.white,
+                    width:
+                        isLandscape
+                            ? screenHeight * 0.002
+                            : screenWidth * 0.005,
+                  ),
+                ),
+                child: Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                  size: isLandscape ? screenHeight * 0.03 : screenWidth * 0.03,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: isLandscape ? screenWidth * 0.025 : screenWidth * 0.045,
+              right: isLandscape ? screenHeight * 0.009 : screenWidth * 0.01,
+              child: Container(
+                width: isLandscape ? screenWidth * 0.04 : screenWidth * 0.02,
+                height:
+                    isLandscape ? screenHeight * 0.017 : screenHeight * 0.02,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    width:
+                        isLandscape
+                            ? screenHeight * 0.001
+                            : screenWidth * 0.002,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+
         actions: [
           IconButton(
             onPressed: () {

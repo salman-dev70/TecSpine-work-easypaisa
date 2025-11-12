@@ -46,7 +46,7 @@ class ServiceItem extends StatelessWidget {
                 child: Icon(
                   icon,
                   color: Colors.green,
-                  size: isLandscape ? screenWidth * 0.02 : screenWidth * 0.055,
+                  size: isLandscape ? screenWidth * 0.04 : screenWidth * 0.055,
                 ),
               ),
             ),
@@ -58,7 +58,7 @@ class ServiceItem extends StatelessWidget {
 
                   style: TextStyle(
                     fontSize:
-                        isLandscape ? screenWidth * 0.35 : screenWidth * 0.028,
+                        isLandscape ? screenWidth * 0.04 : screenWidth * 0.028,
                     fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.center,
